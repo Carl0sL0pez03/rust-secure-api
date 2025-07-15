@@ -37,10 +37,10 @@ jobs:
       - name: Install SQLx CLI
         run: cargo install sqlx-cli --no-default-features --features postgres
 
-      - name: Run migrations (optional)
-        env:
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432/rust_secure_api
-        run: sqlx database setup
+      #- name: Run migrations (optional)
+      #  env:
+      #    DATABASE_URL: postgres://postgres:postgres@localhost:5432/rust_secure_api
+      #  run: sqlx database setup
 
       - name: Build project
         run: cargo build --verbose

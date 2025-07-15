@@ -18,16 +18,19 @@ dotenvy = "0.15"
 # PostgreSQL async driver
 sqlx = { version = "0.7", features = [
     "postgres",
-    "runtime-tokio-native-tls",
     "uuid",
+    "runtime-tokio-native-tls",
     "macros",
+    "chrono",
 ] }
 
+
 # UUIDs
-uuid = { version = "1", features = ["v4"] }
+uuid = { version = "1", features = ["v4", "serde"] }
 
 # Auth
-argon2 = "0.5"
+argon2 = { version = "0.5", features = ["password-hash"] }
+rand_core = "0.6"
 jsonwebtoken = "9"
 
 # Middleware, CORS, etc
@@ -39,3 +42,8 @@ http = "0.2"
 chrono = { version = "0.4", features = ["serde"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+futures = "0.3.31"
+
+#Documentation
+utoipa = { version = "4", features = ["uuid", "chrono"] }
+utoipa-swagger-ui = { version = "5", features = ["axum"] }
